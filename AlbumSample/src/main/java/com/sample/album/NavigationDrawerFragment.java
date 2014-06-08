@@ -214,5 +214,6 @@ public class NavigationDrawerFragment extends Fragment {
 
     public static interface NavigationDrawerCallbacks {
         void onNavigationDrawerItemSelected(int position);
+
     }
 }
