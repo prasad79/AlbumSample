@@ -8,6 +8,8 @@ public abstract class Constants {
 
     public static final String [] TITLE = {"Albums", "Songs", "Artists"};
 
+    public static final String ICON_FOLDER_URL = "http://www.enefce.com/icons/";
+
 
 
 }
