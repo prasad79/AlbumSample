@@ -34,6 +34,7 @@ public class ItemsList extends ListFragment {
             dummies.add(item);
         }
 
+
         ItemsAdapter adapter = new ItemsAdapter(dummies, getActivity());
         setListAdapter(adapter);
     }

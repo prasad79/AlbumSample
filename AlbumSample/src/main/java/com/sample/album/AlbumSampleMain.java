@@ -18,6 +18,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.sample.album.common.Constants;
 import com.sample.album.common.ItemsList;
 
 
@@ -25,6 +26,7 @@ public class AlbumSampleMain extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     private NavigationDrawerFragment mNavigationDrawerFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class AlbumSampleMain extends Activity
                 .replace(R.id.container, itemsList)
                 .commit();
 
-        System.out.println("Item at "+position+" selected");
+        getActionBar().setTitle(Constants.TITLE[position]);
+
+       // System.out.println("Item at " + position + " selected");
     }
 }
