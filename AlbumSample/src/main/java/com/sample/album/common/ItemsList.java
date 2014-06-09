@@ -8,23 +8,29 @@ import java.util.Random;
 
 public class ItemsList extends ListFragment {
 
+    private static ItemsList _instance = null;
     private int type_of_list = Constants.ALBUM_LIST;
     ArrayList<Item> dummieAlbums = null;
     ArrayList<Item> dummieSongs = null;
     ArrayList<Item> dummieArtists = null;
 
-    public ItemsList(int type){
-        type_of_list = type;
+    private ItemsList(){
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+
+
+    public static ItemsList getInstance() {
+        if(_instance == null)
+          _instance =  new ItemsList();
+
+        return _instance;
+    }
+
+    public void setItemType(int type){
+        // Generate a list of 10000 dummy items
         Random random = new Random();
 
-        // Generate a list of 100000 dummy items
-        ArrayList<Item> dummies = new ArrayList<Item>();
-        ItemsAdapter adapter = null;
+        type_of_list = type;
         if(type_of_list == Constants.ALBUM_LIST){
             if(dummieAlbums == null){
                 dummieAlbums = new ArrayList<Item>();
@@ -34,7 +40,6 @@ public class ItemsList extends ListFragment {
                 }
             }
 
-             adapter = new ItemsAdapter(dummieAlbums, getActivity());
 
         } else if(type_of_list == Constants.SONGS_LIST){
             if(dummieSongs == null){
@@ -44,7 +49,6 @@ public class ItemsList extends ListFragment {
                     dummieSongs.add(item);
                 }
             }
-             adapter = new ItemsAdapter(dummieSongs, getActivity());
 
         } else if(type_of_list == Constants.ARTIST_LIST){
             if(dummieArtists == null){
@@ -54,9 +58,26 @@ public class ItemsList extends ListFragment {
                     dummieArtists.add(item);
                 }
             }
-             adapter = new ItemsAdapter(dummieArtists, getActivity());
         }
+    }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        ItemsAdapter adapter = null;
+
+        if(type_of_list == Constants.ALBUM_LIST){
+
+            adapter = new ItemsAdapter(dummieAlbums, getActivity());
+
+        } else if(type_of_list == Constants.SONGS_LIST){
+           adapter = new ItemsAdapter(dummieSongs, getActivity());
+
+        } else if(type_of_list == Constants.ARTIST_LIST){
+            adapter = new ItemsAdapter(dummieArtists, getActivity());
+        }
 
         setListAdapter(adapter);
     }
