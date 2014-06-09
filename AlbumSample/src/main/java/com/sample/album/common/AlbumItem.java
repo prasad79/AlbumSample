@@ -5,10 +5,10 @@ public class AlbumItem implements Item{
     private String genre;
     private String iconUrl;
 
-    public AlbumItem(String name, String genre) {
+    public AlbumItem(String name, String genre, String iconUrl) {
      this.name = name;
      this.genre = genre;
-     iconUrl = "album0.jpg"; //".png"
+     this.iconUrl = iconUrl; //".png"
     }
 
     public String getMainHeader(){

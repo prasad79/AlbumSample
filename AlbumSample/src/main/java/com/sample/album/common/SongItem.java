@@ -5,10 +5,10 @@ public class SongItem implements Item{
     private String artist;
     private String iconUrl;
 
-    public SongItem(String title, String artist) {
+    public SongItem(String title, String artist, String iconUrl) {
         this.title = title;
         this.artist = artist;
-        iconUrl = "song0.jpg"; //".png"
+        this.iconUrl = iconUrl; //".png"
     }
 
     public String getMainHeader(){

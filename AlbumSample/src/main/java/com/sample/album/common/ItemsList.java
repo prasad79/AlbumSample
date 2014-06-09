@@ -29,7 +29,7 @@ public class ItemsList extends ListFragment {
             if(dummieAlbums == null){
                 dummieAlbums = new ArrayList<Item>();
                 for (int i = 0; i < 10000; i++){
-                    Item item =  new AlbumItem("Album " + i, "Genre " + i);
+                    Item item =  new AlbumItem("Album " + i, "Genre " + i, "album"+i+".jpg");
                     dummieAlbums.add(item);
                 }
             }
@@ -40,7 +40,7 @@ public class ItemsList extends ListFragment {
             if(dummieSongs == null){
                 dummieSongs = new ArrayList<Item>();
                 for (int i = 0; i < 10000; i++){
-                    Item item =  new SongItem("Song " + i, "Artist " + i);
+                    Item item =  new SongItem("Song " + i, "Artist " + i, "song"+i+".jpg");
                     dummieSongs.add(item);
                 }
             }
@@ -50,7 +50,7 @@ public class ItemsList extends ListFragment {
             if(dummieArtists == null){
                 dummieArtists = new ArrayList<Item>();
                 for (int i = 0; i < 10000; i++){
-                    Item item =  new ArtistItem("Artist " + i, "Total songs " + random.nextInt(50));
+                    Item item =  new ArtistItem("Artist " + i, "Total songs " + random.nextInt(50), "artist"+i+".jpg");
                     dummieArtists.add(item);
                 }
             }
