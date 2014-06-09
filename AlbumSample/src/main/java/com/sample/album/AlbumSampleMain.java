@@ -34,8 +34,8 @@ public class AlbumSampleMain extends Activity
     public void onNavigationDrawerItemSelected(int position) {
         FragmentManager fragmentManager = getFragmentManager();
 
-        ItemsList itemsList = ItemsList.getInstance();
-        itemsList.setItemType(position);
+        ItemsList itemsList = new ItemsList(position);
+
         fragmentManager.beginTransaction()
                 .replace(R.id.container, itemsList)
                 .commit();
